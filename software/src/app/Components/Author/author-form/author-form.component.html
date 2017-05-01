@@ -1,3 +1,24 @@
-<p>
-  author-form works!
-</p>
+ <form [formGroup]="author" method="post" (submit)="onSubmit()">
+    <h2 class="text-primary">{{title_form}}</h2>
+    <div class="form-group" [ngClass]="{'has-error':!author.get('name').valid && author.get('name').touched}">
+      <label for="name">Auteur</label>
+      <input type="text" formControlName="name" class="form-control" name="name" id="name" placeholder="Author name">
+      <div class="alert alert-danger alert-dismissable fade in alert-height"
+           *ngIf="!author.get('name').valid && author.get('name').touched">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <em>Champs non valide !!!</em>
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':!author.get('birthdate').valid && author.get('birthdate').touched}">
+      <label for="birthdate">Date de naissance</label>
+      <input type="date" formControlName="birthdate" class="form-control" name="birthdate" id="birthdate" placeholder="Author birth day">
+      <div class="alert alert-danger alert-dismissable fade in alert-height"
+           *ngIf="!author.get('birthdate').valid && author.get('birthdate').touched">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <em>Champs non valide !!!</em>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+
