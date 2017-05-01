@@ -21,12 +21,12 @@ export class BookService {
 
         // If the data were successfully saved.
         if(abook.save()){
-            this._flashMessagesService.show('The data from book\'s form was was successfully saved.',
+            this._flashMessagesService.show('Les données du formulaire ont été enregistrés avec succès.',
                 {cssClass:'alert-success',timeout:6000}
             ); // return this._router.navigate(['/form']);
         }
         // Else i display an error message.
-        else this._flashMessagesService.show('Error : please fill correctly the fields.',
+        else this._flashMessagesService.show('Erreur : veuillez renseigner correctement ces champs en respectant ces propres formats.',
             {cssClass:'alert-danger',timeout:10000});
     }
     // Variable isn't an object
