@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import {Book} from '../../Models/Book/book';
+import {Author} from '../../Models/Author/author';
 import  'rxjs/Rx';
 
 @Injectable()
@@ -17,7 +18,7 @@ export class BookService {
      // Test if this variable is object
     if(this._isObject(book)){
         // Create a book instance to save these data;
-        let abook = this._instanceCreate(book);
+        let abook = this._createInstance(book);
 
         // If the data were successfully saved.
         if(abook.save()){
@@ -52,10 +53,10 @@ export class BookService {
      * @returns {Book}
      * @private
      */
-  private _instanceCreate(book:any):Book{
+  private _createInstance(book:any):Book{
       let abook: Book;
-      abook.title     = book.title;
-      abook.author    = book.author;
+      // Call the Author's static function to get the author instance.
+      abook.author = Author.getAuthor(book.author);
       abook.pub_date  = book.pub_date;
       // return a book instance
       return abook;
