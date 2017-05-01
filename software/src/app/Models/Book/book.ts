@@ -1,5 +1,7 @@
 import{Author} from '../Author/author';
-
+import { Http, Response } from '@angular/http';
+import {Router} from '@angular/router';
+import  'rxjs/Rx';
 export class Book {
 
     // Table Fields
@@ -7,6 +9,13 @@ export class Book {
     private _title: string;
     private _author: Author;
     private _pub_date: string;
+
+    // The constructor
+
+    constructor(
+        private _http: Http,
+        private _router: Router
+    ){}
 
     // The Getters And Setters
     get id(): string {
@@ -77,6 +86,8 @@ export class Book {
 
         return false;
     }
+
+    save(){}
 
 }
 
