@@ -30,6 +30,25 @@ export class Author {
 
     // The Features
 
+    private _exist(name: string):Boolean{
+        // Author in
+        if(true){
+            return true;
+        }
+        // Not in database
+        return false;
+    }
+
+    static getAuthor(name: string){
+        // Author is into database
+        if(this._exist(name)){
+
+            // return an Author
+            return;
+        }
+        // Default returns false
+        return false;
+    }
     /**
      *
      * @param author
@@ -59,4 +78,5 @@ export class Author {
 
         return false;
     }
+    save(){}
 }
