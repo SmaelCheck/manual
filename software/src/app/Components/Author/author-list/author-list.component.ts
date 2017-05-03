@@ -9,7 +9,7 @@ import{Author} from '../../../Models/Author/author';
 })
 export class AuthorListComponent implements OnInit {
 
-  authors: Author[];
+  private  _authors: Author[];
 
   constructor(private _auth_service: AuthorService) { }
 

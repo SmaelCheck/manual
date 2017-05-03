@@ -1,23 +1,30 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import{FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { FlashMessagesService } from 'angular2-flash-messages';
-
+import {BookService} from "../../../Services/Book/book.service";
 // declarate
 declare  var jQuery:any;
 @Component({
   selector: 'book-form',
   templateUrl: './book-form.component.html',
-  styleUrls: ['./book-form.component.scss']
+  styleUrls: ['./book-form.component.scss'],
+  providers:[BookService]
 })
 export class BookFormComponent implements OnInit {
-  book_form: FormGroup;
+  book: FormGroup;
+  title_form: string = 'Formulaire d\'ajout un livre.';
 
-  constructor(private _fb: FormBuilder, private _fs: FlashMessagesService) { }
+  constructor(
+      private _fb: FormBuilder,
+      private _fs: FlashMessagesService,
+      private _book_service: BookService
+
+  ) { }
 
 
   ngOnInit() {
 
-    this.book_form = this._fb.group({
+    this.book = this._fb.group({
       title:['',[Validators.required, Validators.minLength(5),Validators.maxLength(50)]],
       author:['',[Validators.required, Validators.minLength(5),Validators.maxLength(50)]],
       pub_date:['',Validators.required]
@@ -26,13 +33,18 @@ export class BookFormComponent implements OnInit {
 
   onSubmit(){
 
-    this._fs.show('Data send successful',{ cssClass:' alert-danger', timeout:15000});
-
-    // const book ={
-    //   title: this.book_form.get('title').value,
-    //   author: this.book_form.get('author').value,
-    //   pub_date: this.book_form.get('pub_date').value
-    // };
+      const abook = {
+      title : this.book.get('title').value,
+      author : this.book.get('author').value,
+      pub_date : this.book.get('pub_date').value
+      };
+      // let abook: Book;
+      // abook.title = this.book.get('title').value;
+      // abook.author = this.book.get('author').value;
+      // abook.pub_date = this.book.get('pub_date').value;
+      // console.log('From the component : '+abook);
+      this._book_service.register(abook);
+      console.log('data are sent to service; from component');
   }
 
 }

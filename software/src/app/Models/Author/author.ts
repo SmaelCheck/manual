@@ -28,27 +28,6 @@ export class Author {
     }
 
 
-    // The Features
-
-    private _exist(name: string):Boolean{
-        // Author in
-        if(true){
-            return true;
-        }
-        // Not in database
-        return false;
-    }
-
-    static getAuthor(name: string){
-        // Author is into database
-        if(this._exist(name)){
-
-            // return an Author
-            return;
-        }
-        // Default returns false
-        return false;
-    }
     /**
      *
      * @param author
@@ -79,4 +58,25 @@ export class Author {
         return false;
     }
     save(){}
+    // The Features
+    private _authExist(name: string):Boolean{
+        // Author in
+        if(1===1){
+            return true;
+        }
+        // Not in database
+        return false;
+    }
+    static getAuthor(name: string){
+        let auth:Author;
+        // Author is into database
+        // if(this._authExist(name) === true){
+        //
+        //     // return an Author
+        //     return auth ;
+        // }
+        // Default returns false
+        return auth;
+    }
+
 }

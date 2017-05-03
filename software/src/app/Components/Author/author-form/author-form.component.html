@@ -19,6 +19,6 @@
         <em>Champs non valide !!!</em>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!author.valid">Ajouter</button>
   </form>
 

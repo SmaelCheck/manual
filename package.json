@@ -23,5 +23,17 @@
   "bugs": {
     "url": "https://github.com/SmaelCheck/manual/issues"
   },
-  "homepage": "https://github.com/SmaelCheck/manual#readme"
+  "homepage": "https://github.com/SmaelCheck/manual#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "cors": "^2.8.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.9.7",
+    "passport": "^0.3.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {}
 }
